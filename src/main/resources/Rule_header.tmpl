@@ -1,0 +1,12 @@
+rule "Rule_$r_$f"
+salience 100
+when
+    $variable : Variable ( name == "Variable_$r_$f", valueSet == true )
+    $variables : ArrayList ( ) from collect (
+       Variable (
+           (name == "Variable_$r_$f")
+       )
+    )
+then
+    LOGGER.beginRule("Rule_$r_$f", $variable);
+    RuleContext context = HELPER.createContext($variable);

@@ -1,0 +1,10 @@
+
+    if (context.checkPreCondition()) {
+        if (!$variable.isValid()) {
+            context.setValidationError(true);
+        }
+    }
+
+    if (context.isValidationError()) {
+        insert(HELPER.createMessage("ERROR", $variable, false));
+    }
